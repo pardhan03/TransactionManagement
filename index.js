@@ -14,6 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
+});
+
 app.get("/api/users/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
